@@ -3,7 +3,6 @@ package com.ea.springdatajpademo.runner;
 import com.ea.springdatajpademo.model.Student;
 import com.ea.springdatajpademo.persistence.StudentPersistence;
 import com.ea.springdatajpademo.repository.StudentRepository;
-import com.ea.springdatajpademo.specification.StudentSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -30,11 +29,11 @@ public class StudentCommandLineRunner implements CommandLineRunner {
     }
 
     private void usingSpringDataJPA() {
-        studentRepository.save(new Student("Jack", 33));
-        studentRepository.save(new Student("John", 20));
-        studentRepository.save(new Student("Jill", 35));
-        studentRepository.save(new Student("Jim", 30));
-        studentRepository.save(new Student("Jasmin", 28));
+//        studentRepository.save(new Student("Jack", 33));
+//        studentRepository.save(new Student("John", 20));
+//        studentRepository.save(new Student("Jill", 35));
+//        studentRepository.save(new Student("Jim", 30));
+//        studentRepository.save(new Student("Jasmin", 28));
 
         List<Student> students = new ArrayList<>();
 
