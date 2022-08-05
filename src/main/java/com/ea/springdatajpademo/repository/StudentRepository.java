@@ -1,14 +1,16 @@
 package com.ea.springdatajpademo.repository;
 
 import com.ea.springdatajpademo.model.Student;
+import com.ea.springdatajpademo.specification.StudentSpecification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Integer> {
+public interface StudentRepository extends JpaRepository<Student, Integer>, JpaSpecificationExecutor<Student> {
 
     public List<Student> findByName(String name);
 
