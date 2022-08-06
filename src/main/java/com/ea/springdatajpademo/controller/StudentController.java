@@ -3,10 +3,7 @@ package com.ea.springdatajpademo.controller;
 import com.ea.springdatajpademo.model.Student;
 import com.ea.springdatajpademo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,11 @@ public class StudentController {
     @GetMapping("/allStudents")
     public List<Student> getAll() {
         return studentRepository.findAll();
+    }
+
+    @PostMapping
+    public void save(@RequestBody Student student) {
+        studentRepository.save(student);
     }
 
 }
