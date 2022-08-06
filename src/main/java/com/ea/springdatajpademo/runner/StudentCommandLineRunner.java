@@ -37,6 +37,13 @@ public class StudentCommandLineRunner implements CommandLineRunner {
 
         List<Student> students = new ArrayList<>();
 
+        System.out.println("\n Display All Data");
+        students = studentRepository.findAll();
+        for (Student student: students) {
+            System.out.println(student);
+        }
+
+        System.out.println("\nFInd By Name");
         students = studentRepository.findByName("Jack");
         for (Student student: students) {
             System.out.println(student);
