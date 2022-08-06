@@ -71,7 +71,7 @@ public class StudentCommandLineRunner implements CommandLineRunner {
         }
 
         System.out.println("\nPassing Student Using Specification GPA Greater Than");
-        students = studentRepository.findAll(hasGpaGreaterThan(10));
+        students = studentRepository.findAll(hasGpaGreaterThan(30));
         for (Student std: students) {
             System.out.println(std);
         }
