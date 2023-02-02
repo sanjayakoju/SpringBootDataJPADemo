@@ -5,12 +5,9 @@ import com.ea.springdatajpademo.persistence.StudentPersistence;
 import com.ea.springdatajpademo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +30,31 @@ public class StudentCommandLineRunner implements CommandLineRunner {
     }
 
     private void usingSpringDataJPA() {
+        studentRepository.save(new Student("Jack", 33));
+        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("Jill", 35));
+        studentRepository.save(new Student("Jim", 30));
+        studentRepository.save(new Student("Jasmin", 28));
+        studentRepository.save(new Student("Jack", 33));
+        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("Jill", 35));
+        studentRepository.save(new Student("Jim", 30));
+        studentRepository.save(new Student("Jasmin", 28));
+        studentRepository.save(new Student("Jack", 33));
+        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("Jill", 35));
+        studentRepository.save(new Student("Jim", 30));
+        studentRepository.save(new Student("Jasmin", 28));
+        studentRepository.save(new Student("Jack", 33));
+        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("Jill", 35));
+        studentRepository.save(new Student("Jim", 30));
+        studentRepository.save(new Student("Jasmin", 28));
+        studentRepository.save(new Student("Jack", 33));
+        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("Jill", 35));
+        studentRepository.save(new Student("Jim", 30));
+        studentRepository.save(new Student("Jasmin", 28));
         studentRepository.save(new Student("Jack", 33));
         studentRepository.save(new Student("John", 20));
         studentRepository.save(new Student("Jill", 35));
@@ -83,29 +105,11 @@ public class StudentCommandLineRunner implements CommandLineRunner {
 
         System.out.println("\nPassing Student Using Specification GPA Greater Than");
         students = studentRepository.findAll(hasGpaGreaterThan(30));
-        Pageable pageable = Pageable.ofSize(10);
-        students = (List<Student>) studentRepository.findAll(hasGpaMoreThan(10), pageable);
+//        Pageable pageable = Pageable.ofSize(10);
+//        students = (List<Student>) studentRepository.findAll(hasGpaMoreThan(10), pageable);
         for (Student std: students) {
             System.out.println(std);
         }
-    }
-
-    public Object findAllApproved(int pageNo, int pageSize, String search) {
-        Page<ReceivedVoucherMaster> ReceivedVoucherMasterPage = repo.findAll((Specification<ReceivedVoucherMaster>) (root, query, criteriaBuilder) -> {
-            List<Predicate> predicates = new ArrayList<>();
-            if (search != null) {
-                predicates.add(criteriaBuilder.or(criteriaBuilder.like(criteriaBuilder
-                        .lower(root.get("date")), "%" + search + "%")));
-            }
-            query.distinct(true);
-            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
-        }, PageRequest.of(pageNo, pageSize));
-
-        List<ReceivedVoucherMaster> approvedList = repo.findAllByStatusOrderByApprovedDateDesc(StatusEnum.Approved);
-
-        List<ReceivedVoucherMaster> sortedList = approvedList.stream().sorted(Comparator.comparing(ReceivedVoucherMaster::getVoucherNumber).reversed()).collect(Collectors.toList());
-        return sortedList;
-
     }
 
     private void usingEnitityManager() {

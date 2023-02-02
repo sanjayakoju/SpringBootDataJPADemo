@@ -1,4 +1,4 @@
-package com.ea.springdatajpademo.specification;
+package com.ea.springdatajpademo.test;
 
 import com.ea.springdatajpademo.model.Student;
 import org.springframework.data.jpa.domain.Specification;
@@ -8,20 +8,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-public class StudentSpecification {
-
-    public static Specification<Student> hasGpaMoreThan(int gpa) {
+public class SearchSpecification {
+    public static Specification<Student> searchSpec(String searchKey) {
         return new Specification<Student>() {
             @Override
             public Predicate toPredicate(Root<Student> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-                return criteriaBuilder.greaterThan(root.get("gpa"), gpa);
+                return criteriaBuilder.greaterThan(root.get("gpa"), searchKey);
             }
         };
     }
-
-    public static Specification<Student> hasGpaGreaterThan(int gpa) {
-        return (root, query, criteriaBuilder) ->
-                criteriaBuilder.greaterThan(root.get("gpa"), gpa);
-    }
-
 }
