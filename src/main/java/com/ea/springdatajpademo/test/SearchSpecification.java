@@ -13,7 +13,8 @@ public class SearchSpecification {
         return new Specification<Student>() {
             @Override
             public Predicate toPredicate(Root<Student> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-                return criteriaBuilder.greaterThan(root.get("gpa"), searchKey);
+//                return criteriaBuilder.greaterThan(root.get("gpa"), searchKey);
+                return criteriaBuilder.like(root.get("name"), "%" + searchKey + "%");
             }
         };
     }
