@@ -1,6 +1,7 @@
 package test;
 
 import com.ea.springdatajpademo.model.Student;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.Query;
@@ -29,7 +30,7 @@ public class TestDemo {
 
     @Override
 //    public Object findAllApproved(int pageNo, int pageSize, String search) {
-    public static Object findAllApproved(PageRequest pageRequest, String search) {
+    public static Page<Object> findAllApproved(PageRequest pageRequest, String search) {
         return repo.findAll(searchSpec(search), pageRequest);
         return repo.findAllByStatusOrderByApprovedDateDesc(StatusEnum.Approved, searchSpec(search), pageRequest);
 
