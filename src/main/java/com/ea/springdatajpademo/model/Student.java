@@ -1,6 +1,7 @@
 package com.ea.springdatajpademo.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @NamedQuery(name = "Student.findFailing", query = "SELECT s FROM Student s WHERE s.gpa < 30")
@@ -48,5 +49,18 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", gpa=" + gpa +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id && gpa == student.gpa && Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, gpa);
     }
 }

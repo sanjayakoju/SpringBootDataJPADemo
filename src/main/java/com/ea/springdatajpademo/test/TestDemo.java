@@ -2,9 +2,7 @@ package com.ea.springdatajpademo.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TestDemo {
@@ -12,9 +10,9 @@ public class TestDemo {
     @Autowired
     StudentService studentService;
 
-    @GetMapping("/findAllApproved")
+    @PostMapping("/findAllApproved")
     public Object findAllApproved(
-            @RequestParam(value = "search", required = false) String search,
+            @RequestBody Object search,
             @RequestParam(defaultValue = "", required = false) int pageNo,
             @RequestParam(defaultValue = "", required = false) int pageSize
     ) {

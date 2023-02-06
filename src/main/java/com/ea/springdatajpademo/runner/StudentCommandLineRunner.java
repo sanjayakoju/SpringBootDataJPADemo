@@ -41,7 +41,7 @@ public class StudentCommandLineRunner implements CommandLineRunner {
         studentRepository.save(new Student("Jim", 30));
         studentRepository.save(new Student("Jasmin", 28));
         studentRepository.save(new Student("Jack", 33));
-        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("John", 23));
         studentRepository.save(new Student("Jill", 35));
         studentRepository.save(new Student("Jim", 30));
         studentRepository.save(new Student("Jasmin", 28));
@@ -51,12 +51,12 @@ public class StudentCommandLineRunner implements CommandLineRunner {
         studentRepository.save(new Student("Jim", 30));
         studentRepository.save(new Student("Jasmin", 28));
         studentRepository.save(new Student("Jack", 33));
-        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("John", 21));
         studentRepository.save(new Student("Jill", 35));
         studentRepository.save(new Student("Jim", 30));
         studentRepository.save(new Student("Jasmin", 28));
         studentRepository.save(new Student("Jack", 33));
-        studentRepository.save(new Student("John", 20));
+        studentRepository.save(new Student("John", 22));
         studentRepository.save(new Student("Jill", 35));
         studentRepository.save(new Student("Jim", 30));
         studentRepository.save(new Student("Jasmin", 28));
